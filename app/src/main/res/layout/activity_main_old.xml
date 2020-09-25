@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:padding="3dp"
+        android:background="@drawable/consumables"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:textSize="20sp"
+            android:textColor="#6ce1cd"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_margin="3dp"
+            android:textSize="13sp"
+            android:text="Item Name"/>
+        <AutoCompleteTextView
+            android:id="@+id/itemName"
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_margin="3dp"
+            android:dropDownHeight="60dp"
+            android:inputType="textCapSentences"
+            android:background="@drawable/edit_text_drawable"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_margin="3dp"
+            android:textSize="13sp"
+            android:text="Quantity"/>
+        <EditText
+            android:id="@+id/qty"
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_margin="3dp"
+            android:dropDownHeight="60dp"
+            android:inputType="textCapSentences"
+            android:background="@drawable/edit_text_drawable"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#1c258f"
+        android:text="submit"/>
+
+</LinearLayout>
