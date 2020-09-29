@@ -26,15 +26,12 @@ public class SharedPrefManager {
         return mInstance;
     }
 
-   // public static SharedPrefManager getInstance(MainPresenter mainPresenter) {
-     //   return null;
-   // }
-
     //method to let the user login
     //this method will store the user data in shared preferences
     public void userLogin(User user) {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
+       //SharedPreferences.Editor.
         editor.putInt(KEY_ID, user.getId());
         editor.putString(KEY_USERNAME, user.getUsername());
         editor.putString(KEY_EMAIL, user.getEmail());

@@ -12,6 +12,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.interlog.interlogapmtstockcounting.editor.MainEActivity;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -27,7 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     EditText qty;
-    TextView randomNos;
+    TextView randomNos, viewEntries;
     Button submitBtn;
     ListView listView;
     AutoCompleteTextView autoVw;
@@ -51,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         textViewEmail = findViewById(R.id.textViewEmail);
         textViewGender = findViewById(R.id.textViewGender);
 
+        viewEntries = findViewById(R.id.viewEntries);
+
         dataBaseHelper = new DataBaseHelper(this);
 
         final int random = new Random().nextInt(10000) + 299999;
@@ -63,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
         submitBtn = findViewById(R.id.submitBtn);
 
         dataSubmit();
+
+        viewEntries.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (MainActivity.this, MainEActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
@@ -98,9 +110,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT);
             }
         });
-
-
-
 
         //getting the current user
         User user = SharedPrefManager.getInstance(this).getUser();

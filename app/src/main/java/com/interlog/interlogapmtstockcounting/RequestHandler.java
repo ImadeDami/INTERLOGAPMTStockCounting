@@ -15,7 +15,6 @@ import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 
 public class RequestHandler {
-
     //this method will send a post request to the specified url
     //in this app we are using only post request
     //in the hashmap we have the data to be sent to the server in keyvalue pairs

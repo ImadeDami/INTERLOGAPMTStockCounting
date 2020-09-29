@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".editor.EditorActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:id="@+id/quantt"
+            android:hint="@string/quantt"
+            android:textSize="25sp"
+            android:inputType="textCapSentences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="Autofill" />
+
+        <EditText
+            android:id="@+id/itemNm"
+            android:layout_below="@id/quantt"
+            android:hint="@string/itemNm"
+            android:inputType="textMultiLine"
+            android:minLines="6"
+            android:gravity="top|start"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="Autofill" />
+
+        <!--EditText
+            android:id="@+id/locAdr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/prodNm"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="18dp"
+            android:gravity="top|start"
+            android:hint="@string/enter_note"
+            android:inputType="textMultiLine"
+            android:minLines="6"
+            tools:ignore="Autofill" /-->
+
+        <com.thebluealliance.spectrum.SpectrumPalette
+            android:id="@+id/palette"
+            android:layout_below="@id/itemNm"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:spectrum_colors="@array/demo_colors"/>
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

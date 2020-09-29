@@ -44,6 +44,31 @@
             android:hint="Password"
             android:inputType="textPassword" />
 
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/checkboxShowHidePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Password"
+            />
+
+        <EditText
+            android:id="@+id/editTextConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:hint="Re-Confirm Password"
+            android:inputType="textPassword" />
+
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/checkboxShowHideConfirmPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Password"
+            />
+
         <RadioGroup
             android:id="@+id/radioGender"
             android:layout_width="match_parent"
