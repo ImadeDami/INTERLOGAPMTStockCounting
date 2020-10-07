@@ -1,6 +1,10 @@
 package com.interlog.interlogapmtstockcounting;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,7 +32,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    EditText qty;
+    EditText qty, racLoc;
     TextView randomNos, viewEntries;
     Button submitBtn;
     ListView listView;
@@ -36,6 +40,14 @@ public class MainActivity extends AppCompatActivity {
     DataBaseHelper dataBaseHelper;
     TextView textViewId, textViewUsername, textViewEmail, textViewGender;
 
+    BroadcastReceiver broadcastReceiver;
+
+    public static final int SYNC_STATUS_OK = 1;
+    public static final int SYNC_STATUS_FAILED = 0;
+    //a broadcast to know weather the data is synced or not
+    public static final String DATA_SAVED_BROADCAST = "net.simplifiedcoding.datasaved";
+    public static final String UI_UPDATE_BROADCAST = "com.interlog.ilstockinventory.uiupdatebroadcast";
+    public static final String URL_SAVE_NAME = "http://interlog-ng.com/interlogmobile/consumables.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +69,24 @@ public class MainActivity extends AppCompatActivity {
 
         dataBaseHelper = new DataBaseHelper(this);
 
+        //registering the broadcast receiver to update sync status
+        registerReceiver(broadcastReceiver, new IntentFilter(DATA_SAVED_BROADCAST));
+        registerReceiver(new NetworkChecker(), new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+        dataBaseHelper.getData();
+        broadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                dataBaseHelper.getData();
+            }
+        };
+
+
         final int random = new Random().nextInt(10000) + 299999;
         randomNos = findViewById(R.id.randomNos);
         randomNos.setText(Integer.toString(random));
 
         qty = findViewById(R.id.qty);
+        racLoc = findViewById(R.id.racLoc);
         listView = findViewById(R.id.listView);
         autoVw = findViewById(R.id.autoVw);
         submitBtn = findViewById(R.id.submitBtn);
@@ -136,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
         final String randomNum = randomNos.getText().toString();
         final String item = autoVw.getText().toString();
         final String quanty = qty.getText().toString();
+        final String racLocat = racLoc.getText().toString();
         final String userid = textViewId.getText().toString();
 
         if (item.isEmpty()) {
@@ -148,11 +174,16 @@ public class MainActivity extends AppCompatActivity {
             qty.requestFocus();
             return;
         }
+        if (racLocat.isEmpty()) {
+            racLoc.setError("enter rack location");
+            racLoc.requestFocus();
+            return;
+        }
 
         Call<ResponseBody> call = RetrofitClient
                 .getInstance()
                 .getIM()
-                .submitResponse(userid,randomNum, item, quanty);
+                .submitResponse(userid,randomNum, item, quanty, racLocat);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -162,11 +193,11 @@ public class MainActivity extends AppCompatActivity {
                     if (!obj.getBoolean("error")) {
                         //if there is a success
                         //storing the name to sqlite with status synced
-                        dataBaseHelper.addData(userid, randomNum, item, quanty);
+                        dataBaseHelper.addData(userid, randomNum, item, quanty, racLocat, SYNC_STATUS_OK);
                     } else {
                         //if there is some error
                         //saving the name to sqlite with status unsynced
-                        dataBaseHelper.addData(userid, randomNum, item, quanty);
+                        dataBaseHelper.addData(userid, randomNum, item, quanty, racLocat, SYNC_STATUS_FAILED);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -184,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                dataBaseHelper.addData(userid, randomNum, item, quanty);
+                dataBaseHelper.addData(userid, randomNum, item, quanty, racLocat, SYNC_STATUS_FAILED);
                 //Toast.makeText(SurveyActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
                 Toast.makeText(MainActivity.this, "data has been saved on phone and will submitted once there is internet connection", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);

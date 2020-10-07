@@ -44,6 +44,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"/>
 
+        <TextView
+            android:id="@+id/racLoc"
+            android:layout_below="@id/quantt"
+            android:text="@string/racLo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"/>
+
         <!--TextView
             android:id="@+id/locAd"
             android:layout_below="@id/prodNm"

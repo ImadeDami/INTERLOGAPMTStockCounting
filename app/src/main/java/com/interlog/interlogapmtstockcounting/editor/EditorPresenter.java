@@ -14,12 +14,12 @@ public class EditorPresenter {
         this.view = view;
     }
 
-    void saveNote(final String itemName, final String quantity) {
+    void saveNote(final String itemName, final String quantity, final String rackLocation) {
         view.showProgress();
 
         ApiInterface apiInterface = ApiClient.getApiClient()
                 .create(ApiInterface.class);
-        Call<Note> call = apiInterface.saveNote(itemName, quantity);
+        Call<Note> call = apiInterface.saveNote(itemName, quantity, rackLocation);
 
         call.enqueue(new Callback<Note>() {
             @Override
@@ -47,12 +47,12 @@ public class EditorPresenter {
         });
     }
 
-    void updateNote(int id, String itemName, String quantity){
+    void updateNote(int id, String itemName, String quantity, String rackLocation){
 
         view.showProgress();
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
 
-        Call<Note> call = apiInterface.updateNote(id, itemName, quantity);
+        Call<Note> call = apiInterface.updateNote(id, itemName, quantity, rackLocation);
         call.enqueue(new Callback<Note>() {
             @Override
             public void onResponse(@NonNull Call<Note> call, @NonNull Response<Note> response) {

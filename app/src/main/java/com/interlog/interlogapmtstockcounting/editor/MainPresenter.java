@@ -32,8 +32,6 @@ public class MainPresenter {
     void getData(int usrId){
         view.showLoading();
 
-
-
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
        // ApiInterface apiInterface = ApiClient.getInstance().getNaSurvey();
         Map<String , String> data = new HashMap<>();

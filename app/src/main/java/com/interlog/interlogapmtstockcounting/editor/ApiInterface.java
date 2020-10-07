@@ -14,7 +14,8 @@ public interface ApiInterface {
     @POST("interlogmobile/savecon.php")
     Call<Note> saveNote(
             @Field("itemName") String itemName,
-            @Field("quantity") String quantity
+            @Field("quantity") String quantity,
+            @Field("rackLocation") String rackLocation
     );
 
     @FormUrlEncoded
@@ -29,7 +30,8 @@ public interface ApiInterface {
     Call<Note> updateNote(
             @Field("id") int id,
             @Field("itemName") String itemName,
-            @Field("quantity") String quantity
+            @Field("quantity") String quantity,
+            @Field("rackLocation") String rackLocation
     );
 
     @FormUrlEncoded

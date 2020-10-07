@@ -15,6 +15,8 @@ public class Note {
     @Expose
     @SerializedName("quantity") private String quantity;
     @Expose
+    @SerializedName("rackLocation") private String rackLocation;
+    @Expose
     @SerializedName("success") private Boolean success;
     @Expose
     @SerializedName("message") private String message;
@@ -58,6 +60,14 @@ public class Note {
 
     public void setQuantity(String quantity) {
         this.quantity = quantity;
+    }
+
+    public String getRackLocation() {
+        return rackLocation;
+    }
+
+    public void setRackLocation(String rackLocation) {
+        this.rackLocation = rackLocation;
     }
 
     public Boolean getSuccess() {

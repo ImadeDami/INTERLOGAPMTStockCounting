@@ -40,6 +40,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.RecyclerViewAd
         Note note = notes.get(position);
         holder.tv_itemnm.setText(note.getItemName());
         holder.tv_quantt.setText(note.getQuantity());
+        holder.tv_raclo.setText(note.getRackLocation());
         //holder.card_item.setCardBackgroundColor(note.getColor());
     }
 
@@ -50,7 +51,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.RecyclerViewAd
 
     class RecyclerViewAdapter extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView tv_itemnm, tv_quantt;
+        TextView tv_itemnm, tv_quantt, tv_raclo;
         CardView card_item;
         ItemClickListener itemClickListener;
 
@@ -72,6 +73,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.RecyclerViewAd
 
             tv_itemnm = itemView.findViewById(R.id.itemNm);
             tv_quantt = itemView.findViewById(R.id.quantt);
+            tv_raclo = itemView.findViewById(R.id.racLoc);
             card_item = itemView.findViewById(R.id.card_item);
 
             this.itemClickListener = itemClickListener;

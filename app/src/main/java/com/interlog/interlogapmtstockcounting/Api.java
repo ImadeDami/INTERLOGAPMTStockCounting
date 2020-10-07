@@ -23,5 +23,6 @@ public interface Api {
             @Field("userID") String userID,
             @Field("randomNumber") String randomNumber,
             @Field("itemName") String itemName,
-            @Field("quantity") String quantity);
+            @Field("quantity") String quantity,
+            @Field("rackLocation") String rackLocation);
 }

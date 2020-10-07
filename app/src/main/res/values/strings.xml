@@ -11,4 +11,5 @@
     <string name="logout">Logout</string>
     <string name="itemNm">Item Name</string>
     <string name="quantt">Quantity</string>
+    <string name="racLo">Rack Location</string>
 </resources>

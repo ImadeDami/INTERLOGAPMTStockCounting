@@ -81,6 +81,7 @@ public class MainEActivity extends AppCompatActivity implements MainView {
             int userID = note.get(position).getUserID(); // new
             String itemName = note.get(position).getItemName();
             String quantity = note.get(position).getQuantity();
+            String rackLocation = note.get(position).getRackLocation();
            // String color = note.get(position).getNote(); // example used int
             Toast.makeText(this, itemName, Toast.LENGTH_SHORT).show();
 
@@ -89,6 +90,7 @@ public class MainEActivity extends AppCompatActivity implements MainView {
             intent.putExtra("userID", userID); //new
             intent.putExtra("itemName", itemName);
             intent.putExtra("quantity", quantity);
+            intent.putExtra("rackLocation", rackLocation);
             //intent.putExtra("color", color);
             startActivityForResult(intent, INTENT_EDIT);
         });
