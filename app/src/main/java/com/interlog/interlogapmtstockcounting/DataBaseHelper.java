@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String TAG = "DataBaseHelper";
-    public static final String TABLE_NAME = "interapmt1";
+    public static final String TABLE_NAME = "interapmt2";
     public static final String COL1 = "id";
     public static final String COL2 = "USERID";
     public static final String COL3 = "RANDOMNUMBER";

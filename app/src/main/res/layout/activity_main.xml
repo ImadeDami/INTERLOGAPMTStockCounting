@@ -14,9 +14,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="240dp"
-            android:padding="3dp"
             android:background="@drawable/consumables"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="3dp">
             <!--TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -29,125 +29,139 @@
         </LinearLayout>
 
         <RelativeLayout
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/viewEntries"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/view_entries"
                 android:layout_alignParentStart="true"
+                android:text="@string/view_entries"
+                android:textColor="@color/startBlue"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/startBlue"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/buttonLogout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:text="@string/logout"
+                android:textColor="@color/startBlue"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/startBlue"/>
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="3dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="3dp">
 
             <TextView
                 android:id="@+id/randomNos"
-                android:layout_weight="3"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_margin="3dp"
+                android:layout_weight="3"
+                android:background="@drawable/edit_text_drawable"
                 android:dropDownHeight="60dp"
-                android:visibility="gone"
-                android:background="@drawable/edit_text_drawable"/>
+                android:visibility="gone" />
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="3dp"
-        android:orientation="vertical">
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <AutoCompleteTextView
-        android:id="@+id/autoVw"
-        android:hint="enter item name"
-        android:completionThreshold="1"
-        android:paddingLeft="3dp"
-        android:layout_marginTop="25dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textCapSentences"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="3dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_margin="3dp"
-            android:textSize="15sp"
-            android:text="Quantity"/>
-        <EditText
-            android:id="@+id/qty"
-            android:layout_weight="3"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_margin="3dp"
-            android:inputType="numberDecimal"
-            android:background="@drawable/edit_text_drawable"/>
-    </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="3dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_margin="3dp"
-                android:textSize="15sp"
-                android:text="Rack Location"/>
-            <EditText
-                android:id="@+id/racLoc"
-                android:layout_weight="3"
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_margin="3dp"
-                android:textAllCaps="true"
-                android:inputType="textCapCharacters"
-                android:background="@drawable/edit_text_drawable"/>
+            android:orientation="vertical"
+            android:padding="3dp">
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <AutoCompleteTextView
+                android:id="@+id/autoVw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:completionThreshold="1"
+                android:hint="enter item name"
+                android:textColorHint="#a225a9"
+                android:inputType="textCapSentences"
+                android:paddingLeft="3dp" />
         </LinearLayout>
 
-    <Button
-        android:id="@+id/submitBtn"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="#1c258f"
-        android:onClick="onClick"
-        android:text="submit"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:text="Quantity"
+                android:textColor="#2826ae"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/qty"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_margin="3dp"
+                android:layout_weight="3"
+                android:background="@drawable/edit_text_drawable"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:textColor="#2826ae"
+                android:text="Rack Location"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/racLoc"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_margin="3dp"
+                android:layout_weight="3"
+                android:background="@drawable/edit_text_drawable"
+                android:inputType="textCapCharacters"
+                android:textAllCaps="true" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#1c258f"
+            android:onClick="onClick"
+            android:text="submit"
+            android:textColor="#dcdc52" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone">
+
             <TextView
                 android:id="@+id/textViewId"
                 android:layout_width="wrap_content"
@@ -155,6 +169,7 @@
                 android:padding="10dp"
                 android:text="1"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
             <TextView
                 android:id="@+id/textViewUsername"
                 android:layout_width="wrap_content"
@@ -162,6 +177,7 @@
                 android:padding="10dp"
                 android:text="amaka"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
             <TextView
                 android:id="@+id/textViewEmail"
                 android:layout_width="wrap_content"

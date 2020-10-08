@@ -27,7 +27,9 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:hint="Username"
-            android:inputType="text" />
+            android:inputType="text"
+            android:drawableStart="@drawable/ic_user"
+            android:drawableTint="#2c49ab"/>
 
         <EditText
             android:id="@+id/editTextPassword"
@@ -37,7 +39,9 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:drawableStart="@drawable/ic_password"
+            android:drawableTint="#2c49ab"/>
 
         <android.support.v7.widget.AppCompatCheckBox
             android:id="@+id/checkbox"
