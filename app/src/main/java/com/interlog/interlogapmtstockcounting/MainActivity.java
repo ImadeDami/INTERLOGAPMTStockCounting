@@ -32,11 +32,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    EditText qty, racLoc;
-    TextView randomNos, viewEntries;
-    Button submitBtn;
-    ListView listView;
-    AutoCompleteTextView autoVw;
+    EditText qty;
+    TextView randomNos;
+    Button viewEntries, submitBtn;
+    ListView listView, listView2;
+    AutoCompleteTextView autoVw, racLoc;
     DataBaseHelper dataBaseHelper;
     TextView textViewId, textViewUsername, textViewEmail, textViewGender;
 
@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-
         final int random = new Random().nextInt(10000) + 299999;
         randomNos = findViewById(R.id.randomNos);
         randomNos.setText(Integer.toString(random));
@@ -88,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         qty = findViewById(R.id.qty);
         racLoc = findViewById(R.id.racLoc);
         listView = findViewById(R.id.listView);
+       // listView2 = findViewById(R.id.listView2);
         autoVw = findViewById(R.id.autoVw);
         submitBtn = findViewById(R.id.submitBtn);
 
@@ -136,6 +136,47 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        // item name auto complete
+
+        Retrofit retrofit2 = new Retrofit.Builder()
+                .baseUrl(Api.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        Api api2 = retrofit2.create(Api.class);
+
+        Call<List<Items>> call2 = api2.getItemNo();
+
+        call2.enqueue(new Callback<List<Items>>() {
+            @Override
+            public void onResponse(Call<List<Items>> call2, Response<List<Items>> response) {
+
+                List<Items> items2 = response.body();
+
+                String[] itemNo = new String[items2.size()];
+                for (int i = 0; i < items2.size(); i++) {
+                    itemNo[i] = items2.get(i).getRackLocation();
+                }
+                racLoc.setAdapter(
+                        new ArrayAdapter<String>(
+                                getApplicationContext(),
+                                android.R.layout.simple_expandable_list_item_1,
+                                itemNo
+                        )
+                );
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Items>> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT);
+            }
+        });
+
+
+
+
         //getting the current user
         User user = SharedPrefManager.getInstance(this).getUser();
 
@@ -164,18 +205,18 @@ public class MainActivity extends AppCompatActivity {
         final String racLocat = racLoc.getText().toString();
         final String userid = textViewId.getText().toString();
 
-        if (item.isEmpty()) {
-            autoVw.setError("enter item name");
+        /*if (item.isEmpty()) {
+            autoVw.setError("enter part desc");
             autoVw.requestFocus();
             return;
-        }
+        } */
         if (quanty.isEmpty()) {
             qty.setError("enter quantity of items");
             qty.requestFocus();
             return;
         }
         if (racLocat.isEmpty()) {
-            racLoc.setError("enter rack location");
+            racLoc.setError("enter part number");
             racLoc.requestFocus();
             return;
         }

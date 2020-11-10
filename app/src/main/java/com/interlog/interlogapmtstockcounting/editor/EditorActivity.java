@@ -99,11 +99,11 @@ public class EditorActivity extends AppCompatActivity implements EditorView {
             case R.id.save:
                 //Save
                 if (itemName.isEmpty()) {
-                    et_itemname.setError("Please enter item name");
+                    et_itemname.setError("Please enter part desc");
                 } else if (quantity.isEmpty()) {
                     et_quantity.setError("Please enter quantity");
                 } else if (rackLocation.isEmpty()) {
-                    et_location.setError("Please enter rack location");
+                    et_location.setError("Please enter part no");
                 } else {
                     presenter.saveNote(itemName, quantity, rackLocation);
                 }
@@ -122,12 +122,13 @@ public class EditorActivity extends AppCompatActivity implements EditorView {
             case R.id.update:
                 //Update
 
-                if (itemName.isEmpty()) {
-                    et_itemname.setError("Please enter item name");
-                } else if (quantity.isEmpty()) {
+                /*if (itemName.isEmpty()) {
+                    et_itemname.setError("Please enter part number");
+                } else */
+                    if (quantity.isEmpty()) {
                     et_quantity.setError("Please enter quantity");
-                } else if (rackLocation.isEmpty()) {
-                    et_location.setError("Please enter rack location");
+                } else if (rackLocation.isEmpty()){
+                    et_location.setError("Please enter part number");
                 } else {
                     presenter.updateNote(id, itemName, quantity, rackLocation);
                 }

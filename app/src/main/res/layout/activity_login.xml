@@ -10,15 +10,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:orientation="vertical"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="290dp"
         android:padding="10dp">
-
 
         <EditText
             android:id="@+id/editTextUsername"
@@ -56,6 +54,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
+            android:background="#002f85"
+            android:textColor="#ffffff"
             android:text="Login" />
 
         <TextView
@@ -65,8 +65,8 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:text="Don't have an account?\nRegister Here"
-            android:visibility="gone"
             android:textAlignment="center"
+            android:visibility="gone"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
     </LinearLayout>

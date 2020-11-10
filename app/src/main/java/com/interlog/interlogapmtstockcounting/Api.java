@@ -15,6 +15,11 @@ public interface Api {
     @GET("interlogmobile/viewitems.php")
     Call<List<Items>> getItems();
 
+    @GET("interlogmobile/viewpartno.php")
+    Call<List<Items>> getItemNo();
+
+
+
 
 
     @FormUrlEncoded

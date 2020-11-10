@@ -34,10 +34,11 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <TextView
+            <Button
                 android:id="@+id/viewEntries"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:layout_alignParentStart="true"
                 android:text="@string/view_entries"
                 android:textColor="@color/startBlue"
@@ -48,6 +49,7 @@
                 android:id="@+id/buttonLogout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:layout_alignParentEnd="true"
                 android:text="@string/logout"
                 android:textColor="@color/startBlue"
@@ -90,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:completionThreshold="1"
-                android:hint="enter item name"
+                android:hint="enter part desc"
                 android:textColorHint="#a225a9"
                 android:inputType="textCapSentences"
                 android:paddingLeft="3dp" />
@@ -107,18 +109,19 @@
                 android:layout_height="45dp"
                 android:layout_margin="3dp"
                 android:layout_weight="1"
-                android:text="Quantity"
                 android:textColor="#2826ae"
-                android:textSize="15sp" />
+                android:text="Part No"
+                android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/qty"
+            <AutoCompleteTextView
+                android:id="@+id/racLoc"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_margin="3dp"
                 android:layout_weight="3"
                 android:background="@drawable/edit_text_drawable"
-                android:inputType="numberDecimal" />
+                android:inputType="textCapCharacters"
+                android:textAllCaps="true" />
         </LinearLayout>
 
         <LinearLayout
@@ -132,20 +135,20 @@
                 android:layout_height="45dp"
                 android:layout_margin="3dp"
                 android:layout_weight="1"
+                android:text="Quantity"
                 android:textColor="#2826ae"
-                android:text="Rack Location"
-                android:textSize="15sp" />
+                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/racLoc"
+                android:id="@+id/qty"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_margin="3dp"
                 android:layout_weight="3"
                 android:background="@drawable/edit_text_drawable"
-                android:inputType="textCapCharacters"
-                android:textAllCaps="true" />
+                android:inputType="numberDecimal" />
         </LinearLayout>
+
 
         <Button
             android:id="@+id/submitBtn"
