@@ -144,7 +144,7 @@ public class MainLActivity extends AppCompatActivity {
             editTextPassword.setSelectAllOnFocus(true);
             return;
         }
-        if (TextUtils.isEmpty(confirmPassword)) {
+        /*if (TextUtils.isEmpty(confirmPassword)) {
             editTextConfirmPassword.setError("Re-Enter your selected password!");
             editTextConfirmPassword.requestFocus();
             editTextConfirmPassword.setSelectAllOnFocus(true);
@@ -156,7 +156,7 @@ public class MainLActivity extends AppCompatActivity {
             editTextPassword.requestFocus();
             editTextPassword.setSelectAllOnFocus(true);
             return;
-        }
+        }*/
 
         //if it passes all the validations
 
